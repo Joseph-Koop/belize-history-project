@@ -19,8 +19,8 @@ function Timeline() {
             </div>
           ))}
         </section>
-        <section className="w-auto justify-center p-9 m-3 flex flex-wrap gap-10 bg-gray-900 rounded-2xl">
-          <div className="overflow-hidden">
+        <section className="w-auto justify-center p-9 m-3 flex flex-wrap gap-10 h-90 bg-gray-900 rounded-2xl">
+          <div className="overflow-hidden w-100">
             <img src={data[current].image} alt={data[current].name} className="max-w-100 max-h-75 object-cover" />
           </div>
           <div className="grid grid-cols-1 gap-10 max-w-300">
@@ -34,6 +34,12 @@ function Timeline() {
         <section className="w-auto flex justify-end p-3 m-3 gap-3">
           <SquareArrowLeft className="hover:text-blue-600 hover:cursor-pointer size-8" onClick={current !== 0 ? () => navigate(current - 1) : null}/>
           <SquareArrowRight className="hover:text-blue-600 hover:cursor-pointer size-8" onClick={current !== (data.length - 1) ? () => navigate(current + 1) : null}/>
+        </section>
+        <section className="w-auto flex justify-center">
+          <video key={data[current].date} controls autoPlay className="-translate-y-20 rounded-xl w-75 h-75">
+            <source src={`${import.meta.env.BASE_URL}${data[current].date}.mp4`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </section>
     </>
     )

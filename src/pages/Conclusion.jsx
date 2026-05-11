@@ -31,6 +31,12 @@ function Conclusion() {
               </div>
           </div>
         </section>
+        <section className="w-auto flex justify-center">
+          <video controls autoPlay className="rounded-xl w-75 h-75">
+            <source src={`${import.meta.env.BASE_URL}conclusion.mp4`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </section>
     </>
     )
 }
